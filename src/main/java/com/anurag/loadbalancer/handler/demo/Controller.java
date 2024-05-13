@@ -42,7 +42,7 @@ public class Controller {
         }
     }
 
-    @PostMapping("active/{activeNumber}")
+    @PostMapping("/active/{activeNumber}")
     public Integer activeServer(@Positive @PathVariable int activeNumber){
         return activeNumber;
     }
@@ -54,12 +54,12 @@ public class Controller {
         return portId;
     }
 
-    @PutMapping("algo/{algoName}")
+    @PutMapping("/algo/{algoName}")
     public void setAlgo(@PathVariable String algoName){
         Config.setAlgo(algoName);
     }
 
-    @GetMapping("server")
+    @GetMapping("/server")
     public List<Integer> activeServers(@RequestParam(required = true) String status){
         if(status.equalsIgnoreCase("up"))
             return Config.getUsedPortsList();
